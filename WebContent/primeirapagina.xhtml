@@ -12,50 +12,82 @@
 			campo.value='eu cliquei no campo :)';
 		}
 	</script> -->
+	<h:outputStylesheet  name="css/bootstrap.min.css"/>
+	<h:outputScript  name="js/bootstrap.min.js" />
+	
 </h:head> 
-<h:body> 
+<h:body class="container">
 
 	<h:form id="formPessoa">
 		<h1>JSF</h1>
 		<br />
-		<h:outputLabel value="Id:" />
-		<h:inputText value="#{pessoaBean.pessoa.id}" readonly="true"  />
-		<br />
-		<h:outputLabel value="Nome:" />
-		<h:inputText value="#{pessoaBean.pessoa.nome}"  />
-		<br />
-		<h:outputLabel value="Sobrenome:" />
-		<h:inputText value="#{pessoaBean.pessoa.sobreNome}" />
-		<br />
-		<h:outputLabel value="Idade:" />
-		<h:inputText value="#{pessoaBean.pessoa.idade}" />
-		<br />
-		<h:commandButton action="#{pessoaBean.salvar()}" value="Salvar" />
-		<h:commandButton action="#{pessoaBean.novo()}" value="Novo" />
-		<h:commandButton action="#{pessoaBean.remove()}" value="Remove" />
-		
-		<h:dataTable value="#{pessoaBean.pessoas}" var="pessoa">
-			<h:column>
-				<h:outputText value="#{pessoa.id}" />
-			</h:column>
-			<h:column>
-				<h:outputText value="#{pessoa.nome}" />
-			</h:column>
-			<h:column>
-				<h:outputText value="#{pessoa.sobreNome}" />
-			</h:column>
-			<h:column>
-				<h:commandLink value="Editar">
-					<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" />
-				</h:commandLink>
-			</h:column>
-			<h:column>
-				<h:commandLink value="Excluir" action="#{pessoaBean.remove()}">
-					<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" />
-				</h:commandLink>
-			</h:column>
-		</h:dataTable>
-		
+		<div class="form-group">
+			<h:outputLabel value="Id:" />
+			<h:inputText value="#{pessoaBean.pessoa.id}" readonly="true"
+				class="form-control" />
+			<br />
+		</div>
+		<div class="form-group">
+			<h:outputLabel value="Nome:" />
+			<h:inputText value="#{pessoaBean.pessoa.nome}" class="form-control" />
+			<br />
+		</div>
+		<div class="form-group">
+			<h:outputLabel value="Sobrenome:" />
+			<h:inputText value="#{pessoaBean.pessoa.sobreNome}"
+				class="form-control" />
+			<br />
+		</div>
+		<div>
+			<h:outputLabel value="Idade:" />
+			<h:inputText value="#{pessoaBean.pessoa.idade}" class="form-control" />
+			<br />
+		</div>
+		<h:commandButton action="#{pessoaBean.salvar()}" value="Salvar"
+			class="btn btn-primary" style="margin:15px" />
+		<h:commandButton action="#{pessoaBean.novo()}" value="Novo"
+			class="btn btn-dark" style="margin:15px" />
+		<h:commandButton action="#{pessoaBean.remove()}" value="Remove"
+			class="btn btn-danger" style="margin:15px" />
+		<br></br>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Sobrenome</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<h:dataTable value="#{pessoaBean.pessoas}" var="pessoa"
+					class="table">
+
+					<h:column>
+						<h:outputText value="#{pessoa.id}" />
+					</h:column>
+					<h:column>
+						<h:outputText value="#{pessoa.nome}" />
+					</h:column>
+					<h:column>
+						<h:outputText value="#{pessoa.sobreNome}" />
+					</h:column>
+					<h:column>
+						<h:commandLink value="Editar">
+							<f:setPropertyActionListener value="#{pessoa}"
+								target="#{pessoaBean.pessoa}" />
+						</h:commandLink>
+					</h:column>
+					<h:column>
+						<h:commandLink value="Excluir" action="#{pessoaBean.remove()}">
+							<f:setPropertyActionListener value="#{pessoa}"
+								target="#{pessoaBean.pessoa}" />
+						</h:commandLink>
+					</h:column>
+				</h:dataTable>
+			</tbody>
+		</table>
 	</h:form>
 </h:body> 
 </html>

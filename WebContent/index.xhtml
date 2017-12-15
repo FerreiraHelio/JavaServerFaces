@@ -5,12 +5,16 @@
       xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
+	<h:outputStylesheet  name="css/bootstrap.min.css"/>
+	<h:outputScript  name="js/bootstrap.min.js" />
 </h:head>
 
 <h:body>
-	<h:form>
-		<h1>Index</h1>
-		<h:commandButton action="primeirapagina" value="Navegar!" />
-	</h:form>
+	<div class="container">
+		<h:form>
+			<h1>Index</h1>
+			<h:commandButton action="primeirapagina" value="Navegar!"  class="btn btn-primary" />
+		</h:form>
+	</div>
 </h:body>
 </html>
