@@ -14,6 +14,7 @@
 	</script> -->
 </h:head> 
 <h:body> 
+
 	<h:form id="formPessoa">
 		<h1>JSF</h1>
 		<br />
@@ -32,6 +33,28 @@
 		<h:commandButton action="#{pessoaBean.salvar()}" value="Salvar" />
 		<h:commandButton action="#{pessoaBean.novo()}" value="Novo" />
 		<h:commandButton action="#{pessoaBean.remove()}" value="Remove" />
+		
+		<h:dataTable value="#{pessoaBean.pessoas}" var="pessoa">
+			<h:column>
+				<h:outputText value="#{pessoa.id}" />
+			</h:column>
+			<h:column>
+				<h:outputText value="#{pessoa.nome}" />
+			</h:column>
+			<h:column>
+				<h:outputText value="#{pessoa.sobreNome}" />
+			</h:column>
+			<h:column>
+				<h:commandLink value="Editar">
+					<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<h:commandLink value="Excluir" action="#{pessoaBean.remove()}">
+					<f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
 		
 	</h:form>
 </h:body> 

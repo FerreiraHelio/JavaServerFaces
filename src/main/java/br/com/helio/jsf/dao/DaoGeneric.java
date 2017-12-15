@@ -1,5 +1,7 @@
 package br.com.helio.jsf.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -45,4 +47,19 @@ public class DaoGeneric<T> {
 		entity.close();
 		
 	}
+	
+	
+	public List<T> getListEntity(Class<T> entidade){
+		EntityManager entity = JPAUtil.getEntityManager();
+		EntityTransaction trans = entity.getTransaction();
+		trans.begin();
+		
+		List<T> retorno = entity.createQuery("from "+entidade.getName()).getResultList();
+		trans.commit();
+		entity.close();
+		
+		return retorno;
+	}
+	
+	
 }
