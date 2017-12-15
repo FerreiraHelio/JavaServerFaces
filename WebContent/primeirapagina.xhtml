@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+	<title>OLA JAVA</title>
+	<!-- <script>
+		function alteraValorDoCampo(){
+			var campo = document.getElementById("formPessoa:campoNome");
+			campo.value='eu cliquei no campo :)';
+		}
+	</script> -->
+</h:head> 
+<h:body> 
+	<h:form id="formPessoa">
+		<h1>JSF</h1>
+		<br />
+		<h:outputLabel value="Id:" />
+		<h:inputText value="#{pessoaBean.pessoa.id}" readonly="true"  />
+		<br />
+		<h:outputLabel value="Nome:" />
+		<h:inputText value="#{pessoaBean.pessoa.nome}"  />
+		<br />
+		<h:outputLabel value="Sobrenome:" />
+		<h:inputText value="#{pessoaBean.pessoa.sobreNome}" />
+		<br />
+		<h:outputLabel value="Idade:" />
+		<h:inputText value="#{pessoaBean.pessoa.idade}" />
+		<br />
+		<h:commandButton action="#{pessoaBean.salvar()}" value="Salvar" />
+		<h:commandButton action="#{pessoaBean.novo()}" value="Novo" />
+		<h:commandButton action="#{pessoaBean.remove()}" value="Remove" />
+		
+	</h:form>
+</h:body> 
+</html>
